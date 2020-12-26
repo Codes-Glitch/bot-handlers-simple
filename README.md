@@ -1,30 +1,32 @@
-# hello-express
+# Information
 
-A server that serves a webpage, its resources, and some data
+A Advanced Music Bot With Filters & Other Cool Stuff ;)
 
+- Filters (Nightcore, Bassboost, Flanger, Etc)
+- Easy To Use & Manage
 
-## Your Project
+### Setup
 
-On the front-end,
+- Download / Export This Repository & Make Sure To Install [Node.js](https://nodejs.org/en/) & [Visual Studio Code (Only If You Don't Have Any Code Editor)](https://code.visualstudio.com/)
+- Open Project In Visual Studio Code (Editor) & To Open Console / Terminal - **Ctrl + A**
+- In Your Project Terminal / Console Type This - **npm i**
+- And Wait For Them (Packages) To Install...
+- After Installing Done, Go To Config.js And
+- Fill Information & After That Type This In Your Terminal / Console - **_node ._** Or **_node server.js_**
+- When Bot Is Ready, You Will See A Message In Console
+- Enjoy <3
 
-- Edit `views/index.html` to change the content of the webpage
-- `public/client.js` is the javacript that runs when you load the webpage
-- `public/style.css` is the styles for `views/index.html`
-- Drag in `assets`, like images or music, to add them to your project
+### Credits
 
-On the back-end,
+- [Github (Filters :D)](https://github.com)
+- [Stackoverflow (Lyrics)](https://stackoverflow.com)
+- [Node Package Manager (Discord.js, Etc)](https://www.npmjs.com/)
+- [Google (Friend)](https://google.com)
 
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+### Other
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy.
+Note: I Will Get Your Ass If You Ever Say **This Is My Bot & Coded By Me Or Smth**, Make Sure To Give Credit (In Bot Or Commands) :D
 
-
-## Made by [Glitch](https://glitch.com/)
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-( ᵔ ᴥ ᵔ )
+- Author - 𝙁𝘾 么 Glitch Editz#5631 
+- Support - [Click Me](https://discord.gg/3yQ7UaSwjy)
+- License - [Mit](https://github.com/Failpfailp/BOT-MUSIC-/)
