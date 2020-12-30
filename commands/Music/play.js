@@ -12,9 +12,11 @@ module.exports = {
   
    
     const Channel = message.member.voice.channel;
-    if (!Channel)
-      if(!Channel)
-      return message.channel.send("Please Join A Voice Channel To Play Music!");
+    const Channel1 = message.member.voice.channel;
+           if(!Channel)
+    return message.react('❌');
+   if(!Channel1)
+           return message.channel.send("Please Join A Voice Channel To Play Music!");
     if (!args[0])
       return message.channel.send(
         "Please Give Any Of The Following :\nYoutube Video (Link - ID) , Youtube Playlist (Link - ID) , Query"
