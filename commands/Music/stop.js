@@ -11,12 +11,6 @@ module.exports = {
   run: async (client, message, args) => {
     
     const Channel = message.member.voice.channel;
-    const Channel1 = message.member.voice.channel;
-
-           if(!Channel1)
-
-    return message.react('🟢');
-
    
     if (!Channel) return message.channel.send("Please Join A Voice Channel!");
     
