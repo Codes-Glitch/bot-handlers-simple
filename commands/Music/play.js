@@ -12,11 +12,10 @@ module.exports = {
   
    
     const Channel = message.member.voice.channel;
-    const Channel1 = message.member.voice.channel;
-           if(!Channel)
-    return message.react('❌');
-   if(!Channel1)
+    
+    if(!Channel)
            return message.channel.send("Please Join A Voice Channel To Play Music!");
+  
     if (!args[0])
       return message.channel.send(
         "Please Give Any Of The Following :\nYoutube Video (Link - ID) , Youtube Playlist (Link - ID) , Query"
@@ -27,6 +26,7 @@ module.exports = {
     )
       return message.channel.send(
         "I Don't Have Enough Permissions To Play Music - Connect , Speak"
+      
       );
     
     if (!Channel.joinable) return message.channel.send("I Can't Join The Voice Channel!");
