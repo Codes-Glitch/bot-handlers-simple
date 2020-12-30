@@ -9,11 +9,11 @@ module.exports = {
   description: "Play Music With Link Or Playlist Or Query!",
   usage: "Play <Song Name | Song Link | Playlist Link>",
   run: async (client, message, args) => {
-  message.react('396548322053062656');
-
-}
+  
+   
     const Channel = message.member.voice.channel;
     if (!Channel)
+      if(!Channel)
       return message.channel.send("Please Join A Voice Channel To Play Music!");
     if (!args[0])
       return message.channel.send(
