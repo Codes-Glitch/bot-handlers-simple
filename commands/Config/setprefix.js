@@ -9,7 +9,7 @@ module.exports = {
   description: "Set The Prefix Of Bot!",
   usage: "Setprefix <New Prefix>",
   run: async (client, message, args) => {
-    
+      if (message.author.id != `${message.guild.ownerID}` ) return message.reply("you do not have permission to use this command,This is only onwer.").then(m=>m.delete({timeout:33000}).catch(e=>{}))
     if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You Don't Have Enough Permission To Execute This Command - Manage Server");
     
     let Prefix = await db.fetch(`Prefix_${message.guild.id}`);

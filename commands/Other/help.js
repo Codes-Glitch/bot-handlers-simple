@@ -11,7 +11,7 @@ module.exports = {
   run: async (client, message, args) => {
     let Prefix = await db.fetch(`Prefix_${message.guild.id}`);
     if (!Prefix) Prefix = Default_Prefix;
-    
+    message.delete()
     const Config = client.commands.filter(cmd => cmd.category === "Config").array().map(m => m.name.charAt(0).toUpperCase() + m.name.slice(1)).join(", ");
     const Music = client.commands.filter(cmd => cmd.category === "Music").array().map(m => m.name.charAt(0).toUpperCase() + m.name.slice(1)).join(", ");
     const Other = client.commands.filter(cmd => cmd.category === "Other").array().map(m => m.name.charAt(0).toUpperCase() + m.name.slice(1)).join(", ");
