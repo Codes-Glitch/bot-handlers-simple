@@ -11,37 +11,93 @@ module.exports = {
   run: async (client, message, args) => {
     let Prefix = await db.fetch(`Prefix_${message.guild.id}`);
     if (!Prefix) Prefix = Default_Prefix;
-    message.delete()
-    const Config = client.commands.filter(cmd => cmd.category === "Config").array().map(m => m.name.charAt(0).toUpperCase() + m.name.slice(1)).join(", ");
-    const Music = client.commands.filter(cmd => cmd.category === "Music").array().map(m => m.name.charAt(0).toUpperCase() + m.name.slice(1)).join(", ");
-    const Other = client.commands.filter(cmd => cmd.category === "Other").array().map(m => m.name.charAt(0).toUpperCase() + m.name.slice(1)).join(", ");
-    
-    const Embed = new Discord.MessageEmbed()
-    .setColor(Color)
-    .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
-    .setTitle(`${client.user.username} Help!`)
-    .setDescription(`Type The Following Command For A Specific Command Information -\n**${Prefix}Help <Command Name>**\n\n**🎶 Music**\n${Music}\n\n**🔮 Other**\n${Other}\n\n**🕹 Config**\n${Config}\n\nUseful Links:\nSupport Server - [Click Me](${Support || "https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3"})\nDashboard - [Clink me](${Dashboard})\nBot Link - [Click Me](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8)\nYouTuber - [Click Me](${Donate})\n\nThank You So Much <3`)
-    .setFooter(`Requested By ${message.author.username}`)
-    .setTimestamp();
-    
-    if (!args[0]) return message.channel.send(Embed);
-    
-    let command = client.commands.get(args[0].toLowerCase()) || client.commands.get(client.aliases.get(args[0].toLowerCase()));
-    
-    if (!command) return message.channel.send(`No Command Found - ${args[0].charAt(0).toUpperCase() + args[0].slice(1)}`);
-    
-    const Embeded = new Discord.MessageEmbed()
-    .setColor(Color)
-    .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
-    .setTitle(`Command Information!`)
-    .addField(`Name`, command.name.charAt(0).toUpperCase() + command.name.slice(1), true)
-    .addField(`Category`, command.category || "No Category", true)
-    .addField(`Aliases`, command.aliases ? command.aliases.join(", ") : "No Aliases", true)
-    .addField(`Usage`, command.usage, true)
-    .addField(`Description`, command.description)
-    .setFooter(`Requested By ${message.author.username}`)
-    .setTimestamp();
-    
-    return message.channel.send(Embeded);
+     if (args[0]) {
+      const command = await client.commands.get(args[0]);
+
+      if (!command) {
+
+        return message.channel.send("Unknown Command: " + args[0]);
+
+      }
+
+      let embed = new Discord.messageEmbed()
+
+        .setAuthor(command.name, client.user.displayAvatarURL())
+
+        .addField("Description", command.description || "Not Provided :(")
+
+        .addField("Usage", command.usage || "Not Provied")
+
+        .setThumbnail(client.user.displayAvatarURL())
+
+        .setColor("GREEN")
+
+        .setFooter(client.user.username, client.user.displayAvatarURL());
+
+      return message.channel.send(embed);
+
+    } else {
+
+      const commands = await client.commands;
+
+      let emx = new Discord.messageEmbed()
+
+        .setDescription("Join my [server](https://discord.gg/MKwyk4qdeb) or Die :D")
+
+        .setColor("GREEN")
+
+        .setFooter(client.user.username, client.user.displayAvatarURL())
+
+        .setThumbnail(client.user.displayAvatarURL());
+
+      let com = {};
+
+      for (let comm of commands.array()) {
+
+       let category = comm.category || "UNKNOWN";
+
+        let name = comm.name;
+
+        if (!com[category]) {
+
+          com[category] = [];
+
+        }
+
+        com[category].push(name);
+
+      }
+
+      for (const [key, value] of Object.entries(com)) {
+
+        let category = key;
+
+        let desc = "<a:right:798696415089262632> `" + value.join("`, `") + "`";
+
+        emx.addField(`${category.toUpperCase()}[${value.length}]`, desc);
+
+      }
+
+      let database = db.get(`cmd_${message.guild.id}`);
+
+      if (database && database.length) {
+
+        let array = [];
+
+        database.forEach(m => {
+
+          array.push("`" + m.name + "`");
+
+        });
+
+        emx.addField("Custom Commands", array.join(", "));
+
+      }
+
+      return message.channel.send(emx);
+
+    }
+
   }
+
 };
