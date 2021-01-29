@@ -5,7 +5,7 @@ const db = require("wio.db");
 module.exports = {
   name: "ping",
   aliases: ["ms"],
-  category: "info",
+  category: "misc",
   description: "Show Bot Ping!",
   usage: "Ping",
   run: async (client, message, args) => {
