@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const db = require("wio.db");
+//const dbw = require("quick.db");
 const client = new Discord.Client();
 const { Default_Prefix, Token, Support, Color, Dashboard } = require("./config.js");
 client.commands = new Discord.Collection();
@@ -49,7 +50,15 @@ client.on("message", async message => {
     .trim()
     .split(/ +/g);
   let cmd = args.shift().toLowerCase();
+   if (cmd.length === 0) return;
 
+ 
+ let cmdx = db.fetch(`cmd_${message.guild.id}`);
+
+  if (cmdx) {
+    let cmdy = cmdx.find(x => x.name === cmd);
+    if (cmdy) message.channel.send(cmdy.responce);
+ 
   let command =
     client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
   
@@ -67,6 +76,6 @@ client.on("message", async message => {
   } catch (error) {
     return message.channel.send(`Something Went Wrong, Try Again Later!`);
   };
-});
+}});
 
 client.login(Token).catch(() => console.log(`Invalid Token Is Provided - Please Give Valid Token!`));

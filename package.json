@@ -21,7 +21,8 @@
     "scrape-yt": "^1.4.7",
     "lyrics-finder": "^21.7.0",
     "ytdl-core": "^4.4.4",
-    "ffmpeg-static": "^4.2.7"
+    "ffmpeg-static": "^4.2.7",
+    "quick.db": "^7.1.2"
   },
   "engines": {
     "node": "12.x"

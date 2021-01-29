@@ -1,6 +1,7 @@
 const { Default_Prefix, Color, Support, Donate, Dashboard } = require("../../config.js");
-const Discord = require("discord.js");
+const { Discord, MessageEmbed }= require("discord.js");
 const db = require("wio.db");
+//const dbw = require("quick.db");
 
 module.exports = {
   name: "help",
@@ -20,7 +21,7 @@ module.exports = {
 
       }
 
-      let embed = new Discord.messageEmbed()
+      let embed = new MessageEmbed()
 
         .setAuthor(command.name, client.user.displayAvatarURL())
 
@@ -39,8 +40,7 @@ module.exports = {
     } else {
 
       const commands = await client.commands;
-
-      let emx = new Discord.messageEmbed()
+      let emx = new MessageEmbed()
 
         .setDescription("Join my [server](https://discord.gg/MKwyk4qdeb) or Die :D")
 
@@ -78,7 +78,7 @@ module.exports = {
 
       }
 
-      let database = db.get(`cmd_${message.guild.id}`);
+      let database = db.fetch(`cmd_${message.guild.id}`);
 
       if (database && database.length) {
 
