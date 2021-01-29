@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "discord.js": "^12.5.1",
     "fs": "^0.0.2",
-    "wio.db": "^4.0.14",
+    "wio.db": "^4.0.9",
     "youtube-sr": "^3.0.0",
     "discord-ytdl-core": "^5.0.0",
     "@discordjs/opus": "^0.3.3",
