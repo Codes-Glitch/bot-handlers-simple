@@ -6,7 +6,7 @@ module.exports = {
 
   name: "cinvite",
 
-  category: "Fun",
+  category: "misc",
 
   run: async (client, message, args, ) => {
 

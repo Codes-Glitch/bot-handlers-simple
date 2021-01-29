@@ -5,7 +5,7 @@ const db = require("wio.db");
 module.exports = {
   name: "setprefix",
   aliases: ["newprefix", "sp"],
-  category: "Config",
+  category: "moderation",
   description: "Set The Prefix Of Bot!",
   usage: "Setprefix <New Prefix>",
   run: async (client, message, args) => {

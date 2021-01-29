@@ -46,7 +46,7 @@ module.exports = {
 
     aliases: [],
 
-    category: "Fun",
+    category: "misc",
 
     usage: "emojify <text>",
 

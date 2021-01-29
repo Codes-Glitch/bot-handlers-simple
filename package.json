@@ -22,7 +22,46 @@
     "lyrics-finder": "^21.7.0",
     "ytdl-core": "^4.4.4",
     "ffmpeg-static": "^4.2.7",
-    "quick.db": "^7.1.2"
+    "quick.db": "^7.1.2",
+    "dotenv": "^8.2.0",
+
+    "ascii-table": "^0.0.9",
+
+    
+
+    "google-play-scraper": "^8.0.2",
+
+    "node-fetch": "^2.6.1",
+
+    "moment": "^2.29.1",
+
+    "mathjs": "^9.0.0",
+
+   
+    "canvas-senpai": "^1.0.0",
+
+    "translate-google": "^1.4.3",
+
+    "request": "^2.88.2",
+
+    "colornames": "^1.1.1",
+
+    "discord-webhook-node": "^1.1.8",
+
+    "novelcovid": "^3.0.0",
+
+    "tracks": "^0.5.8",
+
+    "cleverbot-node": "^0.3.11",
+
+   
+    "ytdl-core": "^4.4.4",
+
+    "yt-search": "^2.5.2",
+
+    "canvacord": "^5.0.8"
+
+  
   },
   "engines": {
     "node": "12.x"
