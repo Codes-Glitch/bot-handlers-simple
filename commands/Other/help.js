@@ -1,7 +1,7 @@
 const { Default_Prefix, Color, Support, Donate, Dashboard } = require("../../config.js");
 const { Discord, MessageEmbed }= require("discord.js");
-const db = require("wio.db");
-//const dbw = require("quick.db");
+//const db = require("wio.db");
+const db = require("quick.db");
 
 module.exports = {
   name: "help",
@@ -78,7 +78,7 @@ module.exports = {
 
       }
 
-      let database = db.fetch(`cmd_${message.guild.id}`);
+      let database = db.get(`cmd_${message.guild.id}`);
 
       if (database && database.length) {
 

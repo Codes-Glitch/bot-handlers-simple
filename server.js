@@ -15,15 +15,30 @@ client.on("ready", async () => {
   client.user.setActivity(`Commands: mshelp \n Music With Members!\n ${client.guilds.cache.size} Server | ${client.users.cache.size} User
    `, { type: "WATCHING" });
 });
+const { readdirSync } = require("fs");
 
-let modules = ["Config", "Music", "Other"];
+let modules = ["./commands/../"];
 
-modules.forEach(function(module) {
+/*modules.forEach(function(module) {
   fs.readdir(`./commands/${module}`, function(error, files) {
     if (error) return new Error(`${error}`);
     files.forEach(function(file) {
-      if (!file.endsWith(".js"))
-        throw new Error(`A File Does Not End With .js!`);
+      if (!file.endsWith(".js"))*/
+
+  readdirSync("./commands/").forEach(dir => {
+
+        // Filter so we only have .js command files
+
+        const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
+
+    
+
+  
+        
+   // throw new Error(`A File Does Not End With .js!`);
+       for (let file of commands) {
+
+     
       let command = require(`./commands/${module}/${file}`);
       console.log(`${command.name} Has Been Loaded - ✅`);
       if (command.name) client.commands.set(command.name, command);
@@ -33,9 +48,9 @@ modules.forEach(function(module) {
         );
       }
       if (command.aliases.length === 0) command.aliases = null;
-    });
-  });
-});
+    }});
+  ;
+;
 
 client.on("message", async message => {
   if (message.author.bot || !message.guild || message.webhookID) return;
@@ -50,15 +65,7 @@ client.on("message", async message => {
     .trim()
     .split(/ +/g);
   let cmd = args.shift().toLowerCase();
-   if (cmd.length === 0) return;
-
- 
- let cmdx = db.fetch(`cmd_${message.guild.id}`);
-
-  if (cmdx) {
-    let cmdy = cmdx.find(x => x.name === cmd);
-    if (cmdy) message.channel.send(cmdy.responce);
- 
+  
   let command =
     client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
   
@@ -76,6 +83,6 @@ client.on("message", async message => {
   } catch (error) {
     return message.channel.send(`Something Went Wrong, Try Again Later!`);
   };
-}});
+});
 
 client.login(Token).catch(() => console.log(`Invalid Token Is Provided - Please Give Valid Token!`));
